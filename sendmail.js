@@ -1,4 +1,6 @@
 function forwardEmail(event) {
+    console.log("forwardEmail() kaldt!");
+
     Office.context.mailbox.item.forwardAsync(
         {
             toRecipients: ["it-afdelingen@nordenergi.dk"],
@@ -8,8 +10,11 @@ function forwardEmail(event) {
         function (asyncResult) {
             if (asyncResult.status === Office.AsyncResultStatus.Failed) {
                 console.error("Fejl ved videresendelse: ", asyncResult.error.message);
+            } else {
+                console.log("Mail sendt succesfuldt!");
             }
         }
     );
+
     event.completed();
 }
