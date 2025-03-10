@@ -1,3 +1,8 @@
+Office.onReady(function(info) {
+    console.log("Office.js er klar!");
+});
+
+
 function forwardEmail(event) {
     if (!Office.context.mailbox) {
         console.error("Mailbox API er ikke tilgængelig.");
