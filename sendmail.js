@@ -6,7 +6,6 @@ Office.onReady(function(info) {
 });
 
 
-
 function forwardEmail(event) {
     if (!Office.context.mailbox) {
         console.error("Mailbox API er ikke tilgængelig.");
@@ -21,5 +20,7 @@ function forwardEmail(event) {
         body: "Denne e-mail er blevet markeret som mulig spam. Venligst undersøg den."
     });
 
-    event.completed();
+    if (event) {
+        event.completed();
+    }
 }
