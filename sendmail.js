@@ -1,6 +1,10 @@
 Office.onReady(function(info) {
     console.log("Office.js er klar!");
+    
+    // Nu kan vi initialisere funktioner eller UI
+    document.getElementById("spamCheckButton").addEventListener("click", forwardEmail);
 });
+
 
 
 function forwardEmail(event) {
