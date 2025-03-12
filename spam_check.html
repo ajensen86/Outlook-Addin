@@ -8,6 +8,10 @@
 <body>
     <h3>Spam Check Add-in</h3>
     <p>Tryk på knappen i Outlook for at sende mailen til IT.</p>
-    <button id="spamCheckButton">Send til IT</button>  <!-- Tilføj denne knap -->
+     <script>
+        Office.onReady(function() {
+            window.close(); // Lukker vinduet, hvis det åbnes
+        });
+    </script>
 </body>
 </html>
