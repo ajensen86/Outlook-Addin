@@ -6,7 +6,8 @@ Office.onReady(function(info) {
     }
 });
 
-function forwardEmail(event) {
+// Gør forwardEmail globalt tilgængelig for Outlook
+window.forwardEmail = function(event) {
     if (!Office.context.mailbox) {
         console.error("❌ Mailbox API er ikke tilgængelig.");
         return;
@@ -23,4 +24,4 @@ function forwardEmail(event) {
     if (event && event.completed) {
         event.completed();
     }
-}
+};
