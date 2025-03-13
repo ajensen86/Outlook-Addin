@@ -1,20 +1,13 @@
 Office.onReady(function(info) {
     console.log("✅ Office.js er klar!");
 
-    document.addEventListener("DOMContentLoaded", function() {
-        console.log("✅ DOM er klar!");
-        
-        let button = document.getElementById("spamCheckButton");
-        if (button) {
-            button.addEventListener("click", forwardEmail);
-            console.log("✅ Knap registreret!");
-        } else {
-            console.warn("⚠️ Kunne ikke finde knappen 'spamCheckButton'");
-        }
-    });
+    if (info.host === Office.HostType.Outlook) {
+        console.log("✅ Outlook registreret!");
+    }
 });
 
-function forwardEmail(event) {
+// Gør forwardEmail globalt tilgængelig for Outlook
+window.forwardEmail = function(event) {
     if (!Office.context.mailbox) {
         console.error("❌ Mailbox API er ikke tilgængelig.");
         return;
@@ -28,7 +21,7 @@ function forwardEmail(event) {
         body: "Denne e-mail er blevet markeret som mulig spam. Venligst undersøg den."
     });
 
-    if (event) {
+    if (event && event.completed) {
         event.completed();
     }
-}
+};
