@@ -8,7 +8,7 @@ Office.onReady(function(info) {
     // Sørg for at funktionen er globalt tilgængelig
     window.forwardEmail = function(event) {
         if (!Office.context || !Office.context.mailbox) {
-            console.error("❌ Mailbox API er ikke tilgængelig.");
+            console.error("❌ Mailbox API test er ikke tilgængelig.");
             return;
         }
 
