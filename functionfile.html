@@ -1,7 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="https://ajensen86.github.io/Outlook-Addin/sendmail.js"></script>
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    <script>
+        Office.onReady(function() {
+            console.log("✅ Office.js er klar!");
+            
+            window.forwardEmail = function(event) {
+                console.log("📩 forwardEmail() kaldt!");
+                if (!Office.context || !Office.context.mailbox) {
+                    console.error("❌ Mailbox API er ikke tilgængelig.");
+                    return;
+                }
+                Office.context.mailbox.displayNewMessageForm({
+                    toRecipients: ["it-afdelingen@nordenergi.dk"],
+                    subject: "[Spam Check] Mistænkelig e-mail",
+                    body: "Denne e-mail er blevet markeret som mulig spam. Venligst undersøg den."
+                });
+                if (event && event.completed) {
+                    event.completed();
+                }
+            };
+            console.log("✅ forwardEmail er nu registreret.");
+        });
+    </script>
 </head>
 <body>
 </body>
