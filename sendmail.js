@@ -1,5 +1,5 @@
 Office.onReady(function(info) {
-    console.log("✅ Office.js er klar!");
+    console.log("✅ Office.js er klar! 123");
 
     if (info.host === Office.HostType.Outlook) {
         console.log("✅ Outlook registreret!");
