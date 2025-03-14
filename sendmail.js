@@ -25,5 +25,8 @@ Office.onReady(function(info) {
         }
     };
 
-    console.log("🚀 forwardEmail funktion er nu registreret:", typeof window.forwardEmail);
+   console.log("🚀 forwardEmail funktion er nu registreret:", typeof window.forwardEmail);
+window.setTimeout(() => {
+    console.log("⏳ Efter timeout - forwardEmail:", typeof window.forwardEmail);
+}, 3000);
 });
